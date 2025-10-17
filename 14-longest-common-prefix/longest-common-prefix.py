@@ -7,13 +7,15 @@ class Solution(object):
         if not strs:
             return ""
 
-        lcp = []
-        for chars in zip(*strs):
-            if all(c == chars[0] for c in chars):
-                lcp.append(chars[0])
-            else:
-                break
+        for i in range(len(strs[0])):
+            char = strs[0][i]
+            for s in strs[1:]:
+                if i >= len(s) or s[i] != char:
+                    return strs[0][:i]
 
-        return ''.join(lcp)
+        return strs[0]
+
+
+        
 
         
