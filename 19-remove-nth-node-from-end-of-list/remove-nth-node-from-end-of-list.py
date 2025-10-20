@@ -21,9 +21,5 @@ class Solution(object):
         slow.next = slow.next.next
 
         return dummy.next
-        """
-        :type head: Optional[ListNode]
-        :type n: int
-        :rtype: Optional[ListNode]
-        """
+        
         
