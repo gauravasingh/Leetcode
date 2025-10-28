@@ -6,6 +6,7 @@ class Node(object):
         self.right = right
         self.next = next
 
+
 class Solution(object):
     def connect(self, root):
         """
@@ -14,14 +15,14 @@ class Solution(object):
         """
         if not root:
             return None
-        
-        leftmost = root  # Start with the root
-        
+
+        leftmost = root
         while leftmost:
-            dummy = Node(0)  # Dummy head for next level
-            prev = dummy
-            curr = leftmost  # Traverse the current level
-            
+            # Dummy node to track the head of the next level
+            dummy = prev = Node(0)
+            curr = leftmost
+
+            # Traverse the current level
             while curr:
                 if curr.left:
                     prev.next = curr.left
@@ -29,8 +30,9 @@ class Solution(object):
                 if curr.right:
                     prev.next = curr.right
                     prev = prev.next
-                curr = curr.next  # Move along current level
-            
-            leftmost = dummy.next  # Move to next level
-        
+                curr = curr.next  # Move to the next node in the same level
+
+            # Move to the next level
+            leftmost = dummy.next
+
         return root
