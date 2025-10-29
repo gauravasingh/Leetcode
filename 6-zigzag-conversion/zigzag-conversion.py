@@ -1,22 +1,17 @@
-class Solution(object):
-    def convert(self, s, numRows):
-        """
-        :type s: str
-        :type numRows: int
-        :rtype: str
-        """
+class Solution:
+    def convert(self, s: str, numRows: int) -> str:
         if numRows == 1 or numRows >= len(s):
             return s
 
-        res = []
-        cycleLen = 2 * numRows - 2
+        rows = [''] * numRows
+        cur_row, step = 0, 1
 
-        for r in range(numRows):
-            for i in range(r, len(s), cycleLen):
-                res.append(s[i])
-                # Middle rows- add the upward diagonal element
-                j = i + cycleLen - 2 * r
-                if r != 0 and r != numRows - 1 and j < len(s):
-                    res.append(s[j])
+        for c in s:
+            rows[cur_row] += c
+            if cur_row == 0:
+                step = 1
+            elif cur_row == numRows - 1:
+                step = -1
+            cur_row += step
 
-        return "".join(res)
+        return ''.join(rows)
