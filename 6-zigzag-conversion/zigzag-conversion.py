@@ -3,15 +3,14 @@ class Solution:
         if numRows == 1 or numRows >= len(s):
             return s
 
-        rows = [''] * numRows
-        cur_row, step = 0, 1
+        cycle = 2 * numRows - 2
+        res = []
 
-        for c in s:
-            rows[cur_row] += c
-            if cur_row == 0:
-                step = 1
-            elif cur_row == numRows - 1:
-                step = -1
-            cur_row += step
+        for r in range(numRows):
+            for i in range(r, len(s), cycle):
+                res.append(s[i])
+                j = i + cycle - 2 * r
+                if r != 0 and r != numRows - 1 and j < len(s):
+                    res.append(s[j])
 
-        return ''.join(rows)
+        return ''.join(res)
