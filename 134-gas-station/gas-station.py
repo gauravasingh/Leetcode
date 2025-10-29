@@ -8,14 +8,15 @@ class Solution(object):
         total_tank = 0
         current_tank = 0
         start = 0
-        
+
         for i in range(len(gas)):
-            total_tank += gas[i] - cost[i]
-            current_tank += gas[i] - cost[i]
-            
-            # If we run out of gas, next station becomes start
+            diff = gas[i] - cost[i]
+            total_tank += diff
+            current_tank += diff
+
+            # If current tank goes negative, move start
             if current_tank < 0:
                 start = i + 1
                 current_tank = 0
-        
+
         return start if total_tank >= 0 else -1
