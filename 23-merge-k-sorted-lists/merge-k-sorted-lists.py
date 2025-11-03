@@ -1,36 +1,29 @@
+from typing import List, Optional
+import heapq
+
 # Definition for singly-linked list.
-# class ListNode(object):
-#     def __init__(self, val=0, next=None):
-#         self.val = val
-#         self.next = next
-class Solution(object):
-    def mergeKLists(self, lists):
-        """
-        :type lists: List[Optional[ListNode]]
-        :rtype: Optional[ListNode]
-        """
-        
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+class Solution:
+    def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
         heap = []
-        counter = 0  
-
-        
-        for node in lists:
-            if node:
-                heapq.heappush(heap, (node.val, counter, node))
-                counter += 1
-
-        
         dummy = ListNode(0)
-        current = dummy
-
-        # Extract the smallest node and add the next node of it to the heap
-        while heap:
-            val, _, node = heapq.heappop(heap)
-            current.next = node
-            current = current.next
-            if node.next:
-                heapq.heappush(heap, (node.next.val, counter, node.next))
-                counter += 1
-
-        return dummy.next
+        curr = dummy
         
+        # Initialize heap with first node of each list
+        for i, l in enumerate(lists):
+            if l:
+                heapq.heappush(heap, (l.val, i, l))
+        
+        # Extract the smallest node and push its next
+        while heap:
+            val, i, node = heapq.heappop(heap)
+            curr.next = node
+            curr = curr.next
+            if node.next:
+                heapq.heappush(heap, (node.next.val, i, node.next))
+        
+        return dummy.next
