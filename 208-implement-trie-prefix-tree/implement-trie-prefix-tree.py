@@ -1,7 +1,7 @@
 class TrieNode(object):
     def __init__(self):
-        self.children = {}   # Dictionary to hold child nodes
-        self.isEnd = False   # Flag to mark the end of a word
+        self.children = [None] * 26  # One slot for each lowercase letter
+        self.isEnd = False
 
 class Trie(object):
 
@@ -11,6 +11,12 @@ class Trie(object):
         """
         self.root = TrieNode()
 
+    def _charToIndex(self, char):
+        """
+        Convert a character into an index 0-25
+        """
+        return ord(char) - ord('a')
+
     def insert(self, word):
         """
         Inserts a word into the trie.
@@ -19,9 +25,10 @@ class Trie(object):
         """
         node = self.root
         for char in word:
-            if char not in node.children:
-                node.children[char] = TrieNode()
-            node = node.children[char]
+            idx = self._charToIndex(char)
+            if not node.children[idx]:
+                node.children[idx] = TrieNode()
+            node = node.children[idx]
         node.isEnd = True
 
     def search(self, word):
@@ -32,9 +39,10 @@ class Trie(object):
         """
         node = self.root
         for char in word:
-            if char not in node.children:
+            idx = self._charToIndex(char)
+            if not node.children[idx]:
                 return False
-            node = node.children[char]
+            node = node.children[idx]
         return node.isEnd
 
     def startsWith(self, prefix):
@@ -45,7 +53,8 @@ class Trie(object):
         """
         node = self.root
         for char in prefix:
-            if char not in node.children:
+            idx = self._charToIndex(char)
+            if not node.children[idx]:
                 return False
-            node = node.children[char]
+            node = node.children[idx]
         return True
