@@ -15,7 +15,7 @@ class Solution:
         
         max_nonwrap = kadane(nums)
         
-        # Kadane for min subarray (to find max_wrap)
+        # Kadane for min subarray to find max_wrap
         min_sum = kadane([-num for num in nums])
         max_wrap = total + min_sum  # total - min_subarray_sum = total + (-min_sum)
         
