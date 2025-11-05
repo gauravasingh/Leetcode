@@ -2,11 +2,11 @@ class Solution:
     def divide(self, dividend: int, divisor: int) -> int:
         INT_MAX, INT_MIN = 2**31 - 1, -2**31
 
-        # Handle overflow edge case
+        
         if dividend == INT_MIN and divisor == -1:
             return INT_MAX
 
-        # Determine sign of result
+        # Sign of result
         negative = (dividend < 0) ^ (divisor < 0)
 
         # Work with positive values
