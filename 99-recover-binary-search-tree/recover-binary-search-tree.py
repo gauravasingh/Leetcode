@@ -11,7 +11,7 @@ class Solution:
 
         while cur:
             if not cur.left:
-                # Process current node
+                # Processing current node
                 if prev and prev.val > cur.val:
                     if not first:
                         first = prev
@@ -19,7 +19,7 @@ class Solution:
                 prev = cur
                 cur = cur.right
             else:
-                # Find inorder predecessor
+                # Finding inorder predecessor
                 pre = cur.left
                 while pre.right and pre.right != cur:
                     pre = pre.right
@@ -36,6 +36,6 @@ class Solution:
                     prev = cur
                     cur = cur.right
 
-        # Swap misplaced values
+        # Swapping misplaced values
         first.val, second.val = second.val, first.val
         
