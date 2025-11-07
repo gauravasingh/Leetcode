@@ -5,9 +5,9 @@ class Solution:
         res = []
 
         def backtrack(index: int, expr: str, value: int, last: int):
-            # If we reached the end of the string
+            # End of the string
             if index == len(num):
-                # If expression evaluates to target, add to results
+                # Evaluating to target, add to results
                 if value == target:
                     res.append(expr)
                 return
@@ -24,11 +24,11 @@ class Solution:
                     # First number, start the expression
                     backtrack(i + 1, curr_str, curr_num, curr_num)
                 else:
-                    # Addition
+                   
                     backtrack(i + 1, expr + '+' + curr_str, value + curr_num, curr_num)
-                    # Subtraction
+                    
                     backtrack(i + 1, expr + '-' + curr_str, value - curr_num, -curr_num)
-                    # Multiplication
+                    
                     backtrack(i + 1, expr + '*' + curr_str,
                               value - last + last * curr_num, last * curr_num)
 
