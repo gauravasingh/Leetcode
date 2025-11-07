@@ -5,7 +5,7 @@ class Solution:
         closest = nums[0] + nums[1] + nums[2]  # Initialize with the first triplet
 
         for i in range(n - 2):
-            # Skip duplicate first elements for a tiny speed-up
+            # Skipping duplicate first elements for a tiny speed-up
             if i > 0 and nums[i] == nums[i - 1]:
                 continue
 
@@ -14,7 +14,7 @@ class Solution:
             while left < right:
                 curr_sum = nums[i] + nums[left] + nums[right]
 
-                # Update closest if this sum is better
+                # Updating closest if this sum is better
                 if abs(curr_sum - target) < abs(closest - target):
                     closest = curr_sum
 
