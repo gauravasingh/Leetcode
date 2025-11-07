@@ -13,7 +13,7 @@
 
 class Solution:
     def sortedListToBST(self, head: Optional[ListNode]) -> Optional[TreeNode]:
-        # Get the length of the linked list
+        # Length of the linked list
         def get_length(node):
             length = 0
             while node:
