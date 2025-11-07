@@ -2,7 +2,7 @@ class Solution:
     def threeSumClosest(self, nums: List[int], target: int) -> int:
         nums.sort()
         n = len(nums)
-        closest = nums[0] + nums[1] + nums[2]  # Initialize with the first triplet
+        closest = nums[0] + nums[1] + nums[2]  #1st triplet
 
         for i in range(n - 2):
             # Skipping duplicate first elements for a tiny speed-up
@@ -18,7 +18,7 @@ class Solution:
                 if abs(curr_sum - target) < abs(closest - target):
                     closest = curr_sum
 
-                # Move pointers intelligently
+                # Move pointers 
                 if curr_sum < target:
                     left += 1
                 elif curr_sum > target:
