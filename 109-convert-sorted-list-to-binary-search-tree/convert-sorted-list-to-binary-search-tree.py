@@ -13,7 +13,7 @@
 
 class Solution:
     def sortedListToBST(self, head: Optional[ListNode]) -> Optional[TreeNode]:
-        # Step 1: Get the length of the linked list
+        # Get the length of the linked list
         def get_length(node):
             length = 0
             while node:
@@ -24,7 +24,7 @@ class Solution:
         size = get_length(head)
         self.current = head  # pointer that moves as we build the tree
 
-        # Step 2: Build the BST recursively
+        # Build the BST recursively
         def build_tree(left, right):
             if left > right:
                 return None
