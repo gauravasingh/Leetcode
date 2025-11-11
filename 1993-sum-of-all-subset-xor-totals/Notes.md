@@ -1,1 +1,1 @@
-<h2>sum-of-all-subset-xor-totals Notes</h2><hr>[ Time taken: 1 d 23 hrs 46 m 56 s ]
+<h2>sum-of-all-subset-xor-totals Notes</h2><hr>[ Time taken: 2 d 18 hrs 7 m 4 s ]
