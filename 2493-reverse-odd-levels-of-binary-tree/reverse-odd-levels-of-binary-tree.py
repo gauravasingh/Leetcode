@@ -20,4 +20,5 @@ class Solution:
             dfs(left.right, right.left, level + 1)
         
         dfs(root.left, root.right, 1)
+        
         return root
