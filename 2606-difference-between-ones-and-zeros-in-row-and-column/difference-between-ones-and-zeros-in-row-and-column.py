@@ -12,6 +12,5 @@ class Solution:
             rowVal = 2 * onesRow[i] - n
             for j in range(n):
                 colVal = 2 * onesCol[j] - m
-                diff[i][j] = rowVal + colVal
-        
+                diff[i][j] = rowVal + colVal        
         return diff
