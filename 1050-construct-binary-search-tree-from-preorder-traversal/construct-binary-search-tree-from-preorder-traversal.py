@@ -10,7 +10,7 @@ class Solution:
         self.i = 0  # pointer over preorder list
         
         def build(lower, upper):
-            # If we've used all nodes, stop
+            # If  all nodes are used it stops
             if self.i == len(preorder):
                 return None
             
