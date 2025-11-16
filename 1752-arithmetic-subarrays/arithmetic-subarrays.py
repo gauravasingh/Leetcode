@@ -19,3 +19,4 @@ class Solution:
             ans.append(ok)
 
         return ans
+
