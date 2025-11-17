@@ -18,7 +18,7 @@ class Solution:
                 else:  # 'D'
                     r += 1
                 
-                # If out of bounds, stop
+                # stop -> If out of bounds
                 if not (0 <= r < n and 0 <= c < n):
                     break
                 
