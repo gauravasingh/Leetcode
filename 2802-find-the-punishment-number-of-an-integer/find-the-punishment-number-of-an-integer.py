@@ -1,7 +1,7 @@
 class Solution:
     def punishmentNumber(self, n: int) -> int:
         def can_partition(s, target, idx, curr_sum):
-            # If we reached the end, check if sum == target
+            # Check if sum == target at the edn
             if idx == len(s):
                 return curr_sum == target
             
