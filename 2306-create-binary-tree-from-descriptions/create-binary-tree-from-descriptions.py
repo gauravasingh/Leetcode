@@ -25,7 +25,7 @@ class Solution:
             else:
                 nodes[parent].right = nodes[child]
 
-        # Root is the one node that is never a child
+        # Root is never a child
         for value in nodes:
             if value not in children:
                 return nodes[value]
