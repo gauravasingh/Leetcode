@@ -30,4 +30,4 @@ class Solution:
             if value not in children:
                 return nodes[value]
 
-        return Non
+        return None
