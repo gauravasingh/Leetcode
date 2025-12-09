@@ -14,3 +14,4 @@ class Solution:
                 result[i].append(num)
 
         return result
+
