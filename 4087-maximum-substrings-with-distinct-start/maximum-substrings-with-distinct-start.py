@@ -1,9 +1,9 @@
 class Solution:
     def maxDistinct(self, s: str) -> int:
-        # Use a set to count all distinct characters
+        # set to count all distinct characters
         return len(set(s))
 
-# Example usage:
+# Example 
 sol = Solution()
 print(sol.maxDistinct("abab"))  # Output: 2
 print(sol.maxDistinct("abcd"))  # Output: 4
