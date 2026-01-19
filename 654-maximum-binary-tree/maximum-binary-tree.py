@@ -9,13 +9,13 @@ class Solution:
         if not nums:
             return None
         
-        # Find index of the maximum value
+        
         max_index = nums.index(max(nums))
         
-        # Create the root node
+        
         root = TreeNode(nums[max_index])
         
-        # Recursively build left and right subtrees
+        
         root.left = self.constructMaximumBinaryTree(nums[:max_index])
         root.right = self.constructMaximumBinaryTree(nums[max_index + 1:])
         
